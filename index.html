@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Explorer</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-2xl font-bold mb-8">Token Explorer</h1>
+
+        <!-- Div to display token list -->
+        <div id="token-list-view" class="overflow-y-auto max-h-72">
+            <h2 class="text-xl font-semibold mb-4">Token List</h2>
+            <div id="token-list-container" class="divide-y divide-gray-200"></div>
+        </div>
+
+        <!-- Div to display token details -->
+        <div id="token-details-view" style="display: none;">
+            <h2 class="text-xl font-semibold mb-4">Token Details</h2>
+            <div id="token-details-container"></div>
+            <button id="back-to-list-button" class="bg-blue-500 text-white py-2 px-4 rounded-md">Back to List</button>
+            <!-- Button to navigate back to token list -->
+        </div>
+
+        <!-- Div to display chat output -->
+        <div id="chat-output" class="bg-white border border-gray-300 rounded-md p-4 mb-8 h-48 overflow-y-auto"></div>
+
+        <!-- Input field and button for sending messages -->
+        <div class="chat-input flex">
+            <input type="text" id="user-input" placeholder="Type your message..."
+                class="flex-1 border border-gray-300 rounded-l-md px-4 py-2">
+            <button id="send-button" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Send</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

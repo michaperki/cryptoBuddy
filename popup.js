@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tokens.forEach(token => {
             const tokenElement = document.createElement('button');
             tokenElement.textContent = token.name;
-            tokenElement.classList.add('token-link'); // Add a class for styling and event handling
+            tokenElement.classList.add('token-link', 'bg-blue-500', 'text-white', 'py-2', 'px-4', 'rounded-md', 'mb-2', 'block', 'w-full', 'text-left'); // Add Tailwind CSS classes
             tokenElement.dataset.token = JSON.stringify(token); // Store token data as a dataset attribute
             container.appendChild(tokenElement);
 
