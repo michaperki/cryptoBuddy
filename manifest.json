@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGPT Extension",
+    "version": "1.0",
+    "description": "An extension to chat with ChatGPT.",
+    "permissions": ["activeTab"],
+
+    "action": {
+      "default_popup": "popup.html",
+        "default_icon": "cryptobuddy.png"
+    }
+  }
+  

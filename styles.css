@@ -1,0 +1,103 @@
+/* styles.css */
+
+/* Reset default margin and padding */
+body, h1, h2, p, button, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px; /* Adjusted max-width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chat-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#chat-output {
+    min-height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+#user-input {
+    width: calc(100% - 85px); /* Adjust width based on button width */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#send-button {
+    width: 75px; /* Adjust width as needed */
+    padding: 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.current-url-section {
+    margin-top: 20px;
+}
+
+.current-url-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.current-url-section p {
+    font-size: 14px;
+}
+
+/* Material UI Button styles */
+.mdl-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.mdl-button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark mode */
+body[data-theme="dark"] {
+    background-color: #303030;
+    color: #fff;
+}
+
+.chat-container[data-theme="dark"] {
+    background-color: #424242;
+    border-color: #616161;
+}
+
+/* Add more styles for dark mode as needed */
