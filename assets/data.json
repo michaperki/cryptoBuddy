@@ -14,11 +14,11 @@
             "volatility":11
         },
         "HAKW Summary":{
-            "market data":"a",
-            "Fundamantala":"a",
-            "momentunm" :"a",
-            "social":"a",
-            "trading behavior":"a"
+            "market data":100,
+            "Fundamantala":100,
+            "momentunm" :100,
+            "social":100,
+            "trading behavior":100
         },
 
         "ML Predictions":{

@@ -7,12 +7,17 @@
     <title>Token Explorer</title>
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body>
     <div class="container">
-        <h1 class="text-2xl font-bold mb-8">Token Explorer</h1>
+        <h1 class="text-2xl font-bold mb-8">CryptoBuddy</h1>
+        <button id="theme-toggle-button" class="mdl-button">
+            <i class="fas fa-adjust"></i>
+        </button>
 
         <!-- Div to display token list -->
         <div id="token-list-view" class="overflow-y-auto max-h-72">
@@ -38,7 +43,7 @@
             <button id="send-button" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Send</button>
         </div>
     </div>
-    <script src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
 </body>
 
 </html>

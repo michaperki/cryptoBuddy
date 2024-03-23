@@ -1,24 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Constants for DOM elements
     const chatOutput = document.getElementById('chat-output');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
     const tokenListView = document.getElementById('token-list-view');
     const tokenDetailsView = document.getElementById('token-details-view');
     const backToListButton = document.getElementById('back-to-list-button');
+    const themeToggleButton = document.getElementById('theme-toggle-button');
 
-    sendButton.addEventListener('click', function () {
+    // Event listeners
+    sendButton.addEventListener('click', handleSendMessage);
+    backToListButton.addEventListener('click', handleBackToList);
+    themeToggleButton.addEventListener('click', toggleTheme);
+
+    // Function to handle sending a message
+    function handleSendMessage() {
         const message = userInput.value;
         if (message.trim() !== '') {
             sendMessage(message);
             userInput.value = '';
         }
-    });
+    }
 
+    // Function to send a message
     function sendMessage(message) {
         const chatBubble = document.createElement('div');
         chatBubble.classList.add('chat-bubble');
         chatBubble.textContent = 'User: ' + message;
         chatOutput.appendChild(chatBubble);
+
         // Here you would send the message to ChatGPT and handle the response
         // For simplicity, we're just echoing back the user's message
         const response = 'ChatGPT: ' + message + ' (echo)';
@@ -28,14 +38,22 @@ document.addEventListener('DOMContentLoaded', function () {
         chatOutput.appendChild(responseBubble);
     }
 
+    // Function to handle navigation back to token list
+    function handleBackToList() {
+        tokenListView.style.display = 'block'; // Show token list view
+        tokenDetailsView.style.display = 'none'; // Hide token details view
+    }
+
+    // Function to toggle theme
+    function toggleTheme() {
+        document.body.classList.toggle('dark');
+    }
+
     // Function to fetch JSON data and render token list
     function fetchAndRenderTokenList() {
-        fetch('data.json')
+        fetch('assets/data.json')
             .then(response => response.json())
-            .then(data => {
-                // Render token list
-                renderTokenList(data);
-            })
+            .then(renderTokenList)
             .catch(error => console.error('Error fetching data:', error));
     }
 
@@ -80,12 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Render other token details similarly
     }
 
-    // Function to handle navigation back to token list
-    backToListButton.addEventListener('click', function () {
-        tokenListView.style.display = 'block'; // Show token list view
-        tokenDetailsView.style.display = 'none'; // Hide token details view
-    });
-
     // Fetch and render token list on page load
     fetchAndRenderTokenList();
+
+    // Your existing code...
 });
