@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatGPT Extension</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 </head>
-
 <body>
     <div class="container">
-        <h1>ChatGPT Extension</h1>
-        <div class="chat-container">
-            <div id="chat-output"></div>
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-button">Send</button>
-        </div>
-
-        <!-- Existing HTML for the popup -->
+        <h1>Token Data</h1>
+        <!-- Div to display current URL -->
         <div class="current-url-section">
             <h2>Current URL:</h2>
             <p id="current-url">Loading...</p>
         </div>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Material UI Button
-        </button>
-
+        <!-- Div to display chat output -->
+        <div id="chat-output">
+            <!-- Chat messages will be displayed here -->
+        </div>
+        <!-- Input field and button for sending messages -->
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+        <!-- Div to display token data -->
+        <div id="data-container"></div>
     </div>
     <script src="popup.js"></script>
 </body>
-
 </html>

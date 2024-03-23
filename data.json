@@ -1,0 +1,42 @@
+{"tokens": [
+
+    {   
+        "name":"bitcoin",
+        "symbol":"btc",
+        "image":"/img1.png",
+        "description":"dslkamlkdsmlsdka",
+        "hawkScore":99,
+        "overview":{
+            "marketcap":232323,
+            "dilutedMarketCap":231312,
+            "24 hour volume":55,
+            "vol/marketcap ratio": 12,
+            "volatility":11
+        },
+        "HAKW Summary":{
+            "market data":"a",
+            "Fundamantala":"a",
+            "momentunm" :"a",
+            "social":"a",
+            "trading behavior":"a"
+        },
+
+        "ML Predictions":{
+            "risk":"Er",
+            "trend":"df",
+            "pricePrediction":213321
+        },
+        "info":{
+            "website":"www.bitcoin.com",
+            "Whitepaper":"/a.pdf"
+        }
+
+    },
+
+    {
+        "name":"token2"
+    }
+    
+    ]
+
+}
