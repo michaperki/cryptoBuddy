@@ -23,20 +23,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Function to send a message
-    function sendMessage(message) {
+    async function sendMessage(message) {
         const chatBubble = document.createElement('div');
         chatBubble.classList.add('chat-bubble');
         chatBubble.textContent = 'User: ' + message;
         chatOutput.appendChild(chatBubble);
 
-        // Here you would send the message to ChatGPT and handle the response
-        // For simplicity, we're just echoing back the user's message
-        const response = 'ChatGPT: ' + message + ' (echo)';
-        const responseBubble = document.createElement('div');
-        responseBubble.classList.add('chat-bubble');
-        responseBubble.textContent = response;
-        chatOutput.appendChild(responseBubble);
+        try {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + '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', // Accessing the API key from environment variables
+                },
+                body: JSON.stringify({ message: message }),
+            });
+            const data = await response.json();
+            console.log('API Response:', data); // Log the response from the API
+            if (response.ok) {
+                const chatGPTResponse = data.response; // Assuming your API returns the response under "response" key
+                const responseBubble = document.createElement('div');
+                responseBubble.classList.add('chat-bubble');
+                responseBubble.textContent = 'ChatGPT: ' + chatGPTResponse;
+                chatOutput.appendChild(responseBubble);
+            } else {
+                throw new Error(data.error || 'Failed to get response from ChatGPT');
+            }
+        } catch (error) {
+            console.error('Error sending message to ChatGPT:', error);
+            console.error('Error details:', error.message); // Log the error message for debugging
+            // Handle error
+        }
     }
+
+
 
     // Function to handle navigation back to token list
     function handleBackToList() {

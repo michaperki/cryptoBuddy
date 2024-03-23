@@ -1,0 +1,11 @@
+/* Reset default margin and padding */
+body, h1, h2, p, button, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global styles */
+  body {
+    color: white; /* Default text color */
+  }
