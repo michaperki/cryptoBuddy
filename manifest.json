@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "ChatGPT Extension",
+    "name": "cryptoBuddy",
     "version": "1.0",
-    "description": "An extension to chat with ChatGPT.",
+    "description": "Quality token information at your fingertips.",
     "permissions": ["activeTab"],
 
     "action": {
