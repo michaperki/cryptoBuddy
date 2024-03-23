@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatOutput = document.getElementById('chat-output');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
+    const tokenListView = document.getElementById('token-list-view');
+    const tokenDetailsView = document.getElementById('token-details-view');
+    const backToListButton = document.getElementById('back-to-list-button');
 
     sendButton.addEventListener('click', function () {
         const message = userInput.value;
@@ -25,50 +28,64 @@ document.addEventListener('DOMContentLoaded', function () {
         chatOutput.appendChild(responseBubble);
     }
 
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        if (tabs && tabs[0]) {
-            const currentUrl = tabs[0].url;
-            displayCurrentUrl(currentUrl);
-        }
-    });
-
-    // Function to display current URL
-    function displayCurrentUrl(url) {
-        const urlDisplay = document.getElementById('current-url');
-        if (urlDisplay) {
-            urlDisplay.textContent = url;
-        }
+    // Function to fetch JSON data and render token list
+    function fetchAndRenderTokenList() {
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Render token list
+                renderTokenList(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
     }
 
-    // Fetch JSON data
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            // Process and render the data
-            renderData(data);
-        })
-        .catch(error => console.error('Error fetching data:', error));
-
-    function renderData(data) {
+    // Function to render token list
+    function renderTokenList(data) {
         const tokens = data.tokens;
-        const container = document.getElementById('data-container');
+        const container = document.getElementById('token-list-container');
+        container.innerHTML = ''; // Clear previous data
 
-        // Clear previous data
-        container.innerHTML = '';
-
-        // Render each token
         tokens.forEach(token => {
-            const tokenContainer = document.createElement('div');
-            tokenContainer.classList.add('token');
+            const tokenElement = document.createElement('button');
+            tokenElement.textContent = token.name;
+            tokenElement.classList.add('token-link'); // Add a class for styling and event handling
+            tokenElement.dataset.token = JSON.stringify(token); // Store token data as a dataset attribute
+            container.appendChild(tokenElement);
 
-            const nameElement = document.createElement('h2');
-            nameElement.textContent = token.name;
-            tokenContainer.appendChild(nameElement);
-
-            // Render other token details similarly
-
-            container.appendChild(tokenContainer);
+            // Add click event listener to show token details
+            tokenElement.addEventListener('click', function () {
+                const tokenData = JSON.parse(this.dataset.token);
+                renderTokenDetails(tokenData); // Render token details
+            });
         });
     }
-});
 
+    // Function to render token details
+    function renderTokenDetails(tokenData) {
+        tokenListView.style.display = 'none'; // Hide token list view
+        tokenDetailsView.style.display = 'block'; // Show token details view
+
+        const detailsContainer = document.getElementById('token-details-container');
+        detailsContainer.innerHTML = ''; // Clear previous data
+
+        // Render token details
+        const title = document.createElement('h2');
+        title.textContent = tokenData.name;
+        detailsContainer.appendChild(title);
+
+        const description = document.createElement('p');
+        description.textContent = tokenData.description;
+        detailsContainer.appendChild(description);
+
+        // Render other token details similarly
+    }
+
+    // Function to handle navigation back to token list
+    backToListButton.addEventListener('click', function () {
+        tokenListView.style.display = 'block'; // Show token list view
+        tokenDetailsView.style.display = 'none'; // Hide token details view
+    });
+
+    // Fetch and render token list on page load
+    fetchAndRenderTokenList();
+});

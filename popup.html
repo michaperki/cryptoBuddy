@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT Extension</title>
+    <title>Token Explorer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>Token Data</h1>
-        <!-- Div to display current URL -->
-        <div class="current-url-section">
-            <h2>Current URL:</h2>
-            <p id="current-url">Loading...</p>
+        <h1>Token Explorer</h1>
+
+        <!-- Div to display token list -->
+        <div id="token-list-view">
+            <h2>Token List</h2>
+            <div id="token-list-container"></div>
         </div>
+
+        <!-- Div to display token details -->
+        <div id="token-details-view" style="display: none;">
+            <h2>Token Details</h2>
+            <div id="token-details-container"></div>
+            <button id="back-to-list-button">Back to List</button> <!-- Button to navigate back to token list -->
+        </div>
+
         <!-- Div to display chat output -->
         <div id="chat-output">
             <!-- Chat messages will be displayed here -->
         </div>
+
         <!-- Input field and button for sending messages -->
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type your message...">
             <button id="send-button">Send</button>
         </div>
-        <!-- Div to display token data -->
-        <div id="data-container"></div>
     </div>
     <script src="popup.js"></script>
 </body>
+
 </html>
