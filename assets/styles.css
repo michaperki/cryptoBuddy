@@ -95,3 +95,8 @@ body, h1, h2, p, button, input {
     background-color: #0056b3;
   }
   
+  /* CSS */
+#hawk-score {
+  /* Remove any existing background color styles */
+  background-color: transparent;
+}

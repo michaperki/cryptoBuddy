@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const backToTokenDetailsButton = document.getElementById('back-to-token-details');
     const themeToggleButton = document.getElementById('theme-toggle-button');
 
+
     // Retrieve theme preference from localStorage
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (isDarkMode) {
@@ -13,15 +14,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event listeners
+    showHawkSummaryButton.addEventListener('click', toggleHawkSummary);
     themeToggleButton.addEventListener('click', toggleTheme);
-    showHawkSummaryButton.addEventListener('click', showHawkSummary);
-    backToTokenDetailsButton.addEventListener('click', backToTokenDetails);
+    backToTokenDetailsButton.addEventListener('click', function () {
+        tokenDetailsView.style.display = 'block'; // Show token details view
+        hawkSummaryView.style.display = 'none'; // Hide Hawk Summary view
+    });
 
     // Function to toggle theme
     function toggleTheme() {
         const isDarkMode = document.body.classList.toggle('dark');
         // Store theme preference in localStorage
         localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+    }
+    // Function to toggle Hawk Summary view
+    function toggleHawkSummary() {
+        tokenDetailsView.style.display = 'none'; // Hide token details view
+        hawkSummaryView.style.display = 'block'; // Show Hawk Summary view
     }
 
     // Function to update current URL
@@ -91,22 +100,22 @@ document.addEventListener('DOMContentLoaded', function () {
         coin.textContent = prompt;
 
         const hawkScore = document.getElementById('hawk-score');
-        hawkScore.textContent = tokenData.hawkScore;
+        hawkScore.textContent = tokenData.scores.hawkscore;
 
         const hawkSummaryMarketData = document.getElementById('hawk-summary-market-data');
-        hawkSummaryMarketData.textContent = tokenData.hawkSummary.marketData;
+        hawkSummaryMarketData.textContent = tokenData.scores.hawkscore_market_data;
 
         const hawkSummaryFundamentals = document.getElementById('hawk-summary-fundamentals');
-        hawkSummaryFundamentals.textContent = tokenData.hawkSummary.fundamentals;
+        hawkSummaryFundamentals.textContent = tokenData.scores.hawkscore_fundamental;
 
         const hawkSummaryMomentum = document.getElementById('hawk-summary-momentum');
-        hawkSummaryMomentum.textContent = tokenData.hawkSummary.momentum;
+        hawkSummaryMomentum.textContent = tokenData.scores.hawkscore_momentum;
 
         const hawkSummarySocial = document.getElementById('hawk-summary-social');
-        hawkSummarySocial.textContent = tokenData.hawkSummary.social;
+        hawkSummarySocial.textContent = tokenData.scores.hawkscore_social;
 
         const hawkSummaryTradingBehavior = document.getElementById('hawk-summary-trading-behavior');
-        hawkSummaryTradingBehavior.textContent = tokenData.hawkSummary.tradingBehavior;
+        hawkSummaryTradingBehavior.textContent = tokenData.scores.hawkscore_trading_behavior;
 
         const price = document.getElementById('coin-price');
         price.textContent = tokenData.price;
@@ -124,19 +133,41 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCurrentUrl();
     }
 
-    // Function to show Hawk Summary and hide Token Details
-    function showHawkSummary() {
-        tokenDetailsView.style.display = 'none';
-        hawkSummaryView.style.display = 'block';
-    }
-
-    // Function to go back to Token Details view from Hawk Summary
-    function backToTokenDetails() {
-        hawkSummaryView.style.display = 'none';
-        tokenDetailsView.style.display = 'block';
-    }
-
-
     // Update current URL when the DOM content is loaded
     updateCurrentUrl();
 });
+
+// Function to calculate color based on the score value
+function calculateColor(score) {
+    // Assuming score ranges from 0 to 100
+    const hue = ((100 - score) * 120) / 100;
+    const backgroundColor = `hsl(${hue}, 100%, 50%)`;
+
+    // Calculate brightness of the background color
+    const rgb = hexToRgb(backgroundColor);
+    const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+
+    // Determine text color based on brightness
+    const textColor = brightness > 125 ? '#333' : '#fff';
+
+    return { backgroundColor, textColor };
+}
+
+// Function to convert hex color to RGB
+function hexToRgb(hex) {
+    // Remove "#" if present
+    hex = hex.replace(/^#/, '');
+
+    // Convert shorthand hex color to full hex
+    if (hex.length === 3) {
+        hex = hex.replace(/(.)/g, '$1$1');
+    }
+
+    // Parse hex to RGB
+    const bigint = parseInt(hex, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    return { r, g, b };
+}

@@ -1,42 +1,67 @@
-{"tokens": [
-
-    {   
-        "name":"bitcoin",
-        "symbol":"btc",
-        "image":"/img1.png",
-        "description":"dslkamlkdsmlsdka",
-        "hawkScore":100,
-        "overview":{
-            "marketcap":232323,
-            "dilutedMarketCap":231312,
-            "24 hour volume":55,
-            "vol/marketcap ratio": 12,
-            "volatility":11
+{
+    "tokens": [
+        {
+            "name": "Bitcoin",
+            "symbol": "btc",
+            "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+            "scores": {
+                "hawkscore": 41.224,
+                "hawkscore_fundamental": 49.231,
+                "hawkscore_market_data": 68,
+                "hawkscore_momentum": 37.778,
+                "hawkscore_social": 31.111,
+                "hawkscore_trading_behavior": 20
+            },
+            "trend": "Bullish",
+            "market_cap": 1294528005601,
+            "vol_mcap": 0.04191385521614094,
+            "circulating_supply": 19660468,
+            "max_supply": 21000000,
+            "momentum": {
+                "VOLATILITY_1D": null
+            }
         },
-        "hawkSummary":{
-            "marketData":100,
-            "fundamentals":100,
-            "momentum" :100,
-            "social":100,
-            "tradingBehavior":100
+        {
+            "name": "Dogecoin",
+            "symbol": "doge",
+            "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
+            "scores": {
+                "hawkscore": 38.336,
+                "hawkscore_fundamental": 38.182,
+                "hawkscore_market_data": 72,
+                "hawkscore_momentum": 34,
+                "hawkscore_social": 17.5,
+                "hawkscore_trading_behavior": 30
+            },
+            "trend": "Bullish",
+            "market_cap": 21800446145,
+            "vol_mcap": 0.15894649187235704,
+            "circulating_supply": 143539316383.705,
+            "max_supply": null,
+            "momentum": {
+                "VOLATILITY_1D": 5.620581891654669e-9
+            }
         },
-
-        "ML Predictions":{
-            "risk":"Er",
-            "trend":"df",
-            "pricePrediction":213321
-        },
-        "info":{
-            "website":"www.bitcoin.com",
-            "Whitepaper":"/a.pdf"
+        {
+            "name": "Cardano",
+            "symbol": "ada",
+            "image": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1696502090",
+            "scores": {
+                "hawkscore": 35.522,
+                "hawkscore_fundamental": 35.652,
+                "hawkscore_market_data": 76,
+                "hawkscore_momentum": 38.182,
+                "hawkscore_social": 17.778,
+                "hawkscore_trading_behavior": 10
+            },
+            "trend": "Bullish",
+            "market_cap": 22186533835,
+            "vol_mcap": 0.03458804862025894,
+            "circulating_supply": 35246552423.2316,
+            "max_supply": 45000000000,
+            "momentum": {
+                "VOLATILITY_1D": 2.2577070201133357e-8
+            }
         }
-
-    },
-
-    {
-        "name":"token2"
-    }
-    
     ]
-
 }
