@@ -14,19 +14,63 @@
 
 <body>
     <div class="container">
-        <h1 class="text-2xl font-bold mb-8">CryptoBuddy</h1>
+        <header class="flex justify-between items-center">
+            <h2 class="text font-bold mb-0">CryptoBuddy</h1>
+            <button id="theme-toggle-button" class="mdl-button">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </header>
+        
         <p id="current-url"> </p> <!-- Added element to display current URL -->
-        <button id="theme-toggle-button" class="mdl-button">
-            <i class="fas fa-adjust"></i>
-        </button>
+
 
         <!-- Div to display token details -->
         <div id="token-details-view" style="display: none;">
-            <h2 class="text-xl font-semibold mb-4">Token Details</h2>
             <div id="token-details-container"></div>
-            <!-- Button to navigate back to token list -->
+            <div id="coin-name" class="text-3xl font-bold mb-4"></div>
+            <div class="text-center mt-4">
+                <span class="block text-xl font-semibold">Hawk Score:</span>
+                <span id="hawk-score" class="block text-3xl font-bold"></span>
+            </div>
+
+            <div class="flex justify-center mt-4">
+                <button id="show-hawk-summary" class="mdl-button">Show Hawk Summary</button>
+            </div>
+        </div>
+
+        <!-- Div to display Hawk Summary -->
+        <div id="hawk-summary-view" style="display: none;">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold">Hawk Summary</h3>
+                <button id="back-to-token-details" class="mdl-button">Back</button>
+            </div>
+            <div class="mt-4">
+                <span class="block text-xl font-semibold">Market Data Score:</span>
+                <span id="hawk-summary-market-data" class="block text-3xl font-bold"></span>
+            </div>
+            <div class="mt-4">
+                <span class="block text
+                -xl font-semibold">Fundamentals Score:</span>
+                <span id="hawk-summary-fundamentals" class="block text-3xl font-bold"></span>
+            </div>
+            <div class="mt-4">
+                <span class="block text
+                -xl font-semibold">Momentum Score:</span>
+                <span id="hawk-summary-momentum" class="block text-3xl font-bold"></span>
+            </div>
+            <div class="mt-4">
+                <span class="block text
+                -xl font-semibold">Social Score:</span>
+                <span id="hawk-summary-social" class="block text-3xl font-bold"></span>
+            </div>
+            <div class="mt-4">
+                <span class="block text
+                -xl font-semibold">Trading Behavior Score:</span>
+                <span id="hawk-summary-trading-behavior" class="block text-3xl font-bold"></span>
+            </div>
         </div>
     </div>
+
     <script type="module" src="popup.js"></script>
 </body>
 
