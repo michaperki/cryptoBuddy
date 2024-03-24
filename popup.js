@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Constants for DOM elements
     const tokenDetailsView = document.getElementById('token-details-view');

@@ -1,5 +1,31 @@
 {
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "@apollo/client": "^3.9.9",
+    "dotenv": "^16.4.5",
+    "graphql": "^16.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "name": "cryptobuddy",
+  "version": "1.0.0",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaperki/cryptoBuddy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaperki/cryptoBuddy/issues"
+  },
+  "homepage": "https://github.com/michaperki/cryptoBuddy#readme",
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }
