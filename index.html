@@ -16,11 +16,11 @@
     <div class="container">
         <header class="flex justify-between items-center">
             <h2 class="text font-bold mb-0">CryptoBuddy</h1>
-            <button id="theme-toggle-button" class="mdl-button">
-                <i class="fas fa-adjust"></i>
-            </button>
+                <button id="theme-toggle-button" class="mdl-button">
+                    <i class="fas fa-adjust"></i>
+                </button>
         </header>
-        
+
         <p id="current-url"> </p> <!-- Added element to display current URL -->
 
 
@@ -42,7 +42,6 @@
         <div id="hawk-summary-view" style="display: none;">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-bold">Hawk Summary</h3>
-                <button id="back-to-token-details" class="mdl-button">Back</button>
             </div>
             <div class="mt-4">
                 <span class="block text-xl font-semibold">Market Data Score:</span>
@@ -67,6 +66,10 @@
                 <span class="block text
                 -xl font-semibold">Trading Behavior Score:</span>
                 <span id="hawk-summary-trading-behavior" class="block text-3xl font-bold"></span>
+            </div>
+            <!-- render the back button on the bottom right -->
+            <div class="flex justify-end mt-4">
+                <button id="back-to-token-details" class="mdl-button">Back</button>
             </div>
         </div>
     </div>
