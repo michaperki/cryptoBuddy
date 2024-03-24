@@ -5,7 +5,7 @@
         "symbol":"btc",
         "image":"/img1.png",
         "description":"dslkamlkdsmlsdka",
-        "hawkScore":99,
+        "hawkScore":100,
         "overview":{
             "marketcap":232323,
             "dilutedMarketCap":231312,
@@ -13,12 +13,12 @@
             "vol/marketcap ratio": 12,
             "volatility":11
         },
-        "HAKW Summary":{
-            "market data":100,
-            "Fundamantala":100,
-            "momentunm" :100,
+        "hawkSummary":{
+            "marketData":100,
+            "fundamentals":100,
+            "momentum" :100,
             "social":100,
-            "trading behavior":100
+            "tradingBehavior":100
         },
 
         "ML Predictions":{
